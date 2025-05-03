@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Каталог | VapeHop</title>
+</head>
+<body>
+  <h1>Каталог товарів</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Головна</a></li>
+      <li><a href="catalog.html">Каталог</a></li>
+      <li><a href="cart.html">Кошик</a></li>
+    </ul>
+  </nav>
+  <div id="products">
+    <div>
+      <h2>Elf Bar 1500</h2>
+      <p>Ціна: 220 грн</p>
+      <button onclick="addToCart('Elf Bar 1500', 220)">Додати в кошик</button>
+    </div>
+    <div>
+      <h2>Vape Liquid Mango</h2>
+      <p>Ціна: 180 грн</p>
+      <button onclick="addToCart('Vape Liquid Mango', 180)">Додати в кошик</button>
+    </div>
+  </div>
+  <script>
+    function addToCart(name, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name, price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + ' додано до кошика!');
+    }
+  </script>
+</body>
+</html>
